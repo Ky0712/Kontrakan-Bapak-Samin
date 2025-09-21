@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrakan Bapak Samin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23e2e8f0"/><path d="M50 250 L100 200 L150 220 L200 180 L250 200 L300 160 L350 180 L350 250 Z" fill="%23cbd5e1"/><rect x="80" y="160" width="80" height="90" fill="%232563eb" rx="5"/><rect x="200" y="140" width="100" height="110" fill="%23475569" rx="5"/><rect x="85" y="165" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="105" y="165" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="125" y="165" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="145" y="165" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="85" y="185" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="105" y="185" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="125" y="185" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="145" y="185" width="15" height="15" fill="%23f1f5f9" rx="2"/><rect x="85" y="225" width="70" height="20" fill="%23475569" rx="3"/><rect x="205" y="150" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="230" y="150" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="255" y="150" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="280" y="150" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="205" y="175" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="230" y="175" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="255" y="175" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="280" y="175" width="20" height="20" fill="%23f1f5f9" rx="2"/><rect x="220" y="220" width="60" height="25" fill="%232563eb" rx="3"/></svg>') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            text-align: center;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400"><rect width="500" height="400" fill="%23f1f5f9"/><rect x="50" y="100" width="400" height="250" fill="%23ffffff" rx="10" stroke="%23e2e8f0" stroke-width="2"/><rect x="80" y="80" width="150" height="100" fill="%232563eb" rx="5"/><rect x="270" y="60" width="160" height="120" fill="%23475569" rx="5"/><rect x="85" y="85" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="110" y="85" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="135" y="85" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="160" y="85" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="185" y="85" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="85" y="110" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="110" y="110" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="135" y="110" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="160" y="110" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="185" y="110" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="85" y="135" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="110" y="135" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="135" y="135" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="160" y="135" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="185" y="135" width="20" height="20" fill="%23ffffff" rx="2"/><rect x="275" y="70" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="305" y="70" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="335" y="70" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="365" y="70" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="395" y="70" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="275" y="100" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="305" y="100" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="335" y="100" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="365" y="100" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="395" y="100" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="275" y="130" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="305" y="130" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="335" y="130" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="365" y="130" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="395" y="130" width="25" height="25" fill="%23ffffff" rx="3"/><rect x="100" y="160" width="80" height="25" fill="%232563eb" rx="5"/><rect x="320" y="160" width="80" height="25" fill="%23475569" rx="5"/><rect x="70" y="220" width="120" height="80" fill="%23e2e8f0" rx="8"/><rect x="210" y="200" width="120" height="100" fill="%23cbd5e1" rx="8"/><rect x="350" y="230" width="120" height="70" fill="%23f1f5f9" rx="8"/><circle cx="130" cy="260" r="15" fill="%232563eb"/><circle cx="270" cy="250" r="18" fill="%23475569"/><circle cx="410" cy="265" r="12" fill="%2364748b"/><path d="M20 350 Q50 330 80 340 T140 335 T200 340 T260 335 T320 340 T380 335 T440 340 T480 350" stroke="%23cbd5e1" stroke-width="3" fill="none"/></svg>') no-repeat center;
+            background-size: cover;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Daftar Kontrakan Section */
+        .kontrakan-list {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+        }
+
+        .kontrakan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .kontrakan-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kontrakan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .kontrakan-image {
+            height: 220px;
+            background: linear-gradient(135deg, #2563eb, #475569);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kontrakan-image::before {
+            content: '🏠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #2563eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .kontrakan-info {
+            padding: 1.5rem;
+        }
+
+        .kontrakan-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .kontrakan-location {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .kontrakan-features {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .contact-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .contact-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* Fasilitas Section */
+        .facilities {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .facility-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .facility-card h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .facility-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Testimoni Section */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            margin-top: 3rem;
+            overflow: hidden;
+        }
+
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            background: #f8fafc;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: #475569;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-role {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-btn {
+            background: #e2e8f0;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #2563eb;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background: #10b981;
+            color: white;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .btn-whatsapp:hover {
+            background: #059669;
+        }
+
+        /* Maps Section */
+        .maps {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .map-container {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            position: relative;
+        }
+
+        .map-placeholder::before {
+            content: '📍';
+            font-size: 4rem;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3b82f6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .kontrakan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="assets/Logo.png" class="logo">
+                    <i class="fas fa-home"></i> Kontrakan Bapak Samin
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#kontrakan">Daftar Kontrakan</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="#harga">Harga</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Temukan Kontrakan Nyaman & Terjangkau</h1>
+                    <p>Hunian berkualitas dengan fasilitas lengkap di lokasi strategis. Mulai dari Rp 900.000 per bulan dengan berbagai pilihan yang sesuai kebutuhan Anda.</p>
+                    <div class="hero-buttons">
+                        <a href="#kontrakan" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Lihat Kontrakan
+                        </a>
+                        <a href="#kontak" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            Konsultasi Gratis
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-illustration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Kontrakan -->
+    <section class="kontrakan-list animate-on-scroll" id="kontrakan">
+        <div class="container">
+            <h2 class="section-title">Daftar Unit Kontrakan</h2>
+            <p class="section-subtitle">Pilih hunian yang sesuai dengan kebutuhan dan budget Anda</p>
+            
+            <div class="kontrakan-grid">
+                <div class="kontrakan-card">
+                    <div class="kontrakan-image">
+                        <div class="price-badge">Rp 900.000 /bulan</div>
+                    </div>
+                    <div class="kontrakan-info">
+                        <h3 class="kontrakan-title">Kontrakan Bapak Samin</h3>
+                        <div class="kontrakan-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Jl. Raya Karang Bolong No.km.133.5, Bandulu, Kec. Anyar, Kabupaten Serang, Banten
+                        </div>
+                        <div class="kontrakan-features">
+                            <span class="feature-tag">1 Kamar</span>
+                            <span class="feature-tag">1 KM</span>
+                            <span class="feature-tag">WiFi</span>
+                            <span class="feature-tag">Furnished</span>
+                        </div>
+                        <button class="contact-btn" onclick="contactWhatsApp('Studio Minimalis', '900.000')">
+                            <i class="fab fa-whatsapp"></i>
+                            Hubungi Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas -->
+    <section class="facilities animate-on-scroll" id="fasilitas">
+        <div class="container">
+            <h2 class="section-title">Fasilitas Unggulan</h2>
+            <p class="section-subtitle">Nikmati berbagai fasilitas lengkap untuk kenyamanan hidup Anda</p>
+            
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>WiFi High Speed</h3>
+                    <p>Koneksi internet cepat dan stabil 24/7 untuk kebutuhan kerja dan hiburan Anda</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Air Bersih</h3>
+                    <p>Pasokan air bersih dan jernih setiap hari dengan tekanan yang stabil</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Area Parkir</h3>
+                    <p>Tempat parkir luas dan aman untuk motor dan mobil dengan CCTV 24 jam</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Keamanan 24 Jam</h3>
+                    <p>Sistem keamanan terpadu dengan satpam dan CCTV untuk menjaga keselamatan</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Dapur Lengkap</h3>
+                    <p>Fasilitas dapur dengan kompor gas, dispenser, dan peralatan masak dasar</p>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-washing-machine"></i>
+                    </div>
+                    <h3>Laundry</h3>
+                    <p>Layanan laundry kiloan dengan harga terjangkau atau mesin cuci komunal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="testimonials animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Testimoni Penyewa</h2>
+            <p class="section-subtitle">Dengarkan pengalaman para penyewa yang puas dengan layanan kami</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-container" id="testimonialContainer">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Kontrakan yang sangat nyaman dan bersih. Lokasi strategis dekat dengan kampus dan fasilitas umum. Pemilik sangat responsif dan ramah. Highly recommended!"</p>
+                        <div class="testimonial-author">Andi Pratama</div>
+                        <div class="testimonial-role">Mahasiswa Petrokimia</div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Sudah 2 tahun tinggal di sini dan sangat puas. WiFi cepat, air lancar, dan keamanan terjamin. Harga sewa juga sangat reasonable untuk fasilitas yang didapat."</p>
+                        <div class="testimonial-author">Sari Wijayanti</div>
+                        <div class="testimonial-role">Karyawan Swasta</div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Tempat yang perfect untuk keluarga kecil. Lingkungan tenang, tetangga friendly, dan fasilitas lengkap. Anak-anak juga suka dengan area bermainnya."</p>
+                        <div class="testimonial-author">Budi Santoso</div>
+                        <div class="testimonial-role">Kepala Keluarga</div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <buttons class="slider-btn" onclick="previousTestimonial()">
+                        <i class="fas fa-chevron-left"></i>
+                    </buttons>
+                    <buttons class="slider-btn" onclick="nextTestimonial()">
+                        <i class="fas fa-chevron-right"></i>
+                    </buttons>
+                </div>
+                
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentTestimonial(0)"></span>
+                    <span class="dot" onclick="currentTestimonial(1)"></span>
+                    <span class="dot" onclick="currentTestimonial(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta animate-on-scroll" id="harga">
+        <div class="container">
+            <h2>Siap Menemukan Hunian Impian?</h2>
+            <p>Jangan tunggu lagi! Hubungi kami sekarang dan dapatkan penawaran terbaik untuk kontrakan pilihan Anda.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281927158346"></a>
+                <a href="#kontak" class="btn btn-secondary" style="color: white; border-color: rgba(255,255,255,0.3);">
+                    <i class="fas fa-calendar-alt"></i>
+                    Reservasi Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maps -->
+    <section class="maps animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title">Lokasi Strategis</h2>
+            <p class="section-subtitle">Temukan lokasi kontrakan kami yang mudah diakses dari berbagai tempat</p>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div style="text-align: center; z-index: 2; position: relative;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                        <br>
+                        <strong>Peta Lokasi Kontrakan Prima</strong>
+                        <br>
+                        <small style="opacity: 0.7;">Klik untuk membuka di Google Maps</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="kontak">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-home"></i> Kontrakan Bapak Samin</h3>
+                    <p>Penyedia hunian kontrakan terpercaya dengan fasilitas lengkap dan pelayanan terbaik di kota Anda.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>Jl. Raya Karang Bolong No.km.133.5, Bandulu, Kec. Anyar, Kabupaten Serang, Banten</p>
+                    <p>Anyer, Serang-Banten</p>
+                    <p><i class="fas fa-phone"></i> +62 819-2715-8346</p>
+                    <p><i class="fas fa-envelope"></i> rifkihidayatullah926@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +62 819-2715-8346</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Jumat: 08:00 - 18:00</p>
+                    <p>Sabtu: 08:00 - 16:00</p>
+                    <p>Minggu: 09:00 - 15:00</p>
+                    <br>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#kontrakan">Daftar Kontrakan</a></p>
+                    <p><a href="#fasilitas">Fasilitas</a></p>
+                    <p><a href="#harga">Paket Harga</a></p>
+                    <p><a href="#kontak">Kontak Kami</a></p>
+                    <p><a href="#">Syarat & Ketentuan</a></p>
+                    <p><a href="#">Kebijakan Privasi</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kontrakan Bapak Samin. All rights reserved. | Designed Rifki Hidayatullah</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Testimonial Slider
+        let currentTestimonialIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const totalTestimonials = testimonials.length;
+        const container = document.getElementById('testimonialContainer');
+        const dots = document.querySelectorAll('.dot');
+
+        function showTestimonial(index) {
+            container.style.transform = `translateX(-${index * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            currentTestimonialIndex = index;
+        }
+
+        function nextTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        function previousTestimonial() {
+            currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        function currentTestimonial(index) {
+            showTestimonial(index);
+        }
+
+        // Auto-play testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // WhatsApp Contact Function
+        function contactWhatsApp(unitType, price) {
+            const phoneNumber = '6281927158346';
+            const message = `Halo, saya tertarik dengan ${unitType} seharga Rp ${price}/bulan. Bisa tolong berikan informasi lebih detail seperti:
+
+1. Ketersediaan unit
+2. Spesifikasi lengkap
+3. Foto-foto unit
+4. Syarat dan ketentuan sewa
+5. Jadwal untuk survey lokasi
+
+Terima kasih!`;
+            
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Map Click Handler
+        document.querySelector('.map-placeholder').addEventListener('click', () => {
+            const mapsURL = 'https://maps.app.goo.gl/1mFGeJTEdcMLRS2T8';
+            window.open(mapsURL, '_blank');
+        });
+
+        // Interactive Card Animations
+        document.querySelectorAll('.kontrakan-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        document.querySelectorAll('.facility-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('.facility-icon').style.transform = 'scale(1.1) rotateY(180deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('.facility-icon').style.transform = 'scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Stagger animation for cards
+            const cards = document.querySelectorAll('.kontrakan-card, .facility-card');
+            cards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 100}ms`;
+            });
+        });
+    </script>
+</body>
+</html>
+                
